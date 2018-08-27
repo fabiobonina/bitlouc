@@ -1,9 +1,8 @@
 <template>
   <v-app>
-    <v-navigation-drawer
+    <!--v-navigation-drawer
       persistent
       :mini-variant="miniVariant"
-      :clipped="clipped"
       v-model="drawer"
       enable-resize-watcher
       fixed
@@ -24,10 +23,7 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar
-      app
-      :clipped-left="clipped"
-    >
+    <v-toolbar app>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-btn icon @click.stop="miniVariant = !miniVariant">
         <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'"></v-icon>
@@ -65,12 +61,23 @@
     </v-navigation-drawer>
     <v-footer :fixed="fixed" app>
       <span>&copy; 2017</span>
-    </v-footer>
+    </v-footer-->
+    <router-view></router-view>
   </v-app>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld'
+import Home from './pages/Home'
+//import Oss from './pages/oss'
+//import Lojas from './pages/lojas'
+//import Loja from './pages/loja'
+//import Local from './pages/local'
+//import Proprietario from './pages/proprietario'
+
+import Config from './components/includes/Config'
+import Loader from './components/includes/Loader'
+import Message from './components/includes/Message'
 
 export default {
   name: 'App',
@@ -79,17 +86,7 @@ export default {
   },
   data () {
     return {
-      clipped: false,
-      drawer: true,
-      fixed: false,
-      items: [{
-        icon: 'bubble_chart',
-        title: 'Inspire'
-      }],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: 'Vuetify.js'
+      title: 'BitLouc'
     }
   }
 }

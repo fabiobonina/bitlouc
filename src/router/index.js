@@ -10,13 +10,14 @@ import Hello from '@/components/HelloWorld'
 //import LocalList from '@/components/cliente/localidade/List'
 //import LocalView from '@/components/cliente/localidade/View'
 //import Usuarios from '@/pages/Usuarios'
-//import Home from '@/pages/Home'
+import Home from '@/pages/Home'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
-    { path: '/', name: 'Home', component: Hello },
+    { path: '/', name: 'Home', component: Home },
+    { path: '/hello', name: 'Hello', component: Hello },
     /*{ path: '/Usuarios', name: 'Usuarios', component: Usuarios },
     { path: '/hello', name: 'Hello', component: Hello },
     { path: '/clientes', component: Clientes},
