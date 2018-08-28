@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Hello from '@/components/HelloWorld'
+import Home from '@/pages/Home'
 import Lojas from '@/pages/Lojas'
 //import Bens from '@/pages/Bens'
 //import BemList from '@/components/bem/List'
@@ -11,14 +11,14 @@ import Lojas from '@/pages/Lojas'
 //import LocalList from '@/components/cliente/localidade/List'
 //import LocalView from '@/components/cliente/localidade/View'
 //import Usuarios from '@/pages/Usuarios'
-import Home from '@/pages/Home'
+
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     { path: '/', name: 'Home', component: Home },
-    { path: '/hello', name: 'Hello', component: Hello },
+    { path: '/lojas', name: 'Lojas', component: Lojas},
     /*{ path: '/Usuarios', name: 'Usuarios', component: Usuarios },
     { path: '/hello', name: 'Hello', component: Hello },
     { path: '/clientes', component: Clientes},

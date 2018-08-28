@@ -3,7 +3,7 @@
     <v-navigation-drawer persistent :mini-variant="miniVariant"  v-model="drawer" enable-resize-watcher fixed app>
       
       <v-list>
-        <v-list-tile v-for="item in home" :key="item.title" :to="item.router" @click="" append>
+        <v-list-tile v-for="item in home" :key="item.title" :to="item.router" append>
           <v-list-tile-action>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-tile-action>
@@ -55,7 +55,6 @@ export default {
       right: true,
       rightDrawer: false,
       title: 'BitLouc',
-      drawer: null,
       errorMessage: '',
       successMessage: '',
       modalUser: false,
@@ -85,10 +84,10 @@ export default {
   },
   computed: {
     user() {
-      return store.state.user;
+      return this.$store.state.user;
     },
     isLoggedIn() {
-      return store.state.isLoggedIn;
+      return this.$store.state.isLoggedIn;
     },    
     //...Vuex.mapGetters(["isLoggedIn"])
   },

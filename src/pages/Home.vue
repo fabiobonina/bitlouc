@@ -40,10 +40,7 @@ export default {
         //  console.log("Current data: ", doc.data());
       //});
       this.$store.dispatch("fetchLoja").then(() => {
-        console.log("Buscando dados para inicial!")
-      });
-      this.$store.dispatch("fetchLoja").then(() => {
-        console.log("Buscando dados para inicial!")
+        //console.log("Buscando dados para inicial!")
       });
       db.collection('employees').orderBy('dept').get().then((querySnapshot) => {
         this.loading = false

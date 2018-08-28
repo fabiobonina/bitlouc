@@ -4,7 +4,7 @@
     <v-content>
       <v-container fluid>
         <loader :dialog="isLoading"/>
-        <list-lojas :data="lojas"/>
+        <list-loja :data="lojas"/>
       </v-container>
     </v-content>
     <rodape/>
@@ -14,7 +14,7 @@
 <script>
 import Top from '../components/includes/Top'
 import Rodape from '../components/includes/Rodape'
-import ListLoja from '../components/loja/ListLojas'
+import ListLoja from '../components/loja/ListLoja'
 //import NewLoja from '../components/loja/_newLoja'
 //import EdtLoja from '../components/loja/_edtLoja'
 //import DelLoja from '../components/loja/_delLoja'
@@ -23,12 +23,14 @@ export default {
   name: 'Lojas',
   components: {
     Top,
-    Rodape
+    Rodape,
+    ListLoja
   },
   data () {
       return {
         employees: [],
-        isLoading: true
+        isLoading: true,
+        lojas: []
       }
     },
     created () {
@@ -40,7 +42,7 @@ export default {
       //});
       this.$store.dispatch("fetchLoja").then(() => {
         this.isLoading = false
-        console.log("Buscando dados lojas")
+        //console.log("Buscando dados lojas")
       });
     }
   

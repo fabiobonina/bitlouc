@@ -3,11 +3,11 @@ import Vuex from 'vuex'
 import db from '../firebaseInit'
 
 Vue.use(Vuex)
-const INDEXLIST   ='./config/api/apiProprietario.php?action=read';
-const CONFIG      ='./config/api/apiConfig.php?action=config';
-const LOCALLIST   ='./config/api/apiLocal.php?action=read';
-const OSLIST      ='./config/api/apiOs.php?action=read';
-const CONFIGPROD  ='./config/api/apiConfig.php?action=prod';
+//const INDEXLIST   ='./config/api/apiProprietario.php?action=read';
+//const CONFIG      ='./config/api/apiConfig.php?action=config';
+//const LOCALLIST   ='./config/api/apiLocal.php?action=read';
+//const OSLIST      ='./config/api/apiOs.php?action=read';
+//const CONFIGPROD  ='./config/api/apiConfig.php?action=prod';
 
 const LOGIN = "LOGIN";
 const LOGIN_SUCCESS = "LOGIN_SUCCESS";
@@ -143,32 +143,24 @@ const mutations = {
 }
 
 const actions = {
-    fetchLoja({ commit }) {
-        return new Promise((resolve, reject) => {
-        db.collection('employees').orderBy('dept').get().then((querySnapshot) => {
-            state.lojas = [],
-            querySnapshot.forEach((doc) => {
-                const data = {
-                    'id': doc.id,
-                    'employee_id': doc.data().employee_id,
-                    'name': doc.data().name,
-                    'dept': doc.data().dept,
-                    'position': doc.data().position
-                }
-                commit('SET_LOJAS', { data })
-            })
-            //console.log(querySnapshot);
-
+  fetchLoja({ commit }) {
+    return new Promise((resolve) => {
+      db.collection('employees').orderBy('dept').get().then((querySnapshot) => {
+        state.lojas = [],
+        querySnapshot.forEach((doc) => {
+            const data = {
+                'id': doc.id,
+                'employee_id': doc.data().employee_id,
+                'name': doc.data().name,
+                'dept': doc.data().dept,
+                'position': doc.data().position
+            }
+            commit('SET_LOJAS', { data })
         })
-        resolve();
+      })
+      resolve();
     });
-    },
-    myFirebaseAction: ({commit}) => {
-        //you can use firebase like this
-        var ref = db.database().ref()
-        console.log(ref);
-        commit("SET_LOJAS", ref);
-    },
+  },
   setSearch({ commit }, search) {
     commit("SET_SEARCH", search)
   },
@@ -211,7 +203,7 @@ const actions = {
   setCategorias({ commit }, categorias) {
     commit("SET_CATEGORIAS", categorias)
   },
-  fetchIndex({ commit }) {
+  /*fetchIndex({ commit }) {
     return new Promise((resolve, reject) => {
       var postData = { token: state.token };
       Vue.http.post(INDEXLIST, postData )
@@ -233,12 +225,12 @@ const actions = {
         }
       })
       .catch((error => {
-          console.log(error.statusText);
+          Console.log(error.statusText);
       }));
     });
   },
   fetchConfig({ commit }) {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       Vue.http.get(CONFIG)
       .then((response) => {
         if(response.data.error){
@@ -259,6 +251,7 @@ const actions = {
       })
       .catch((error => {
           console.log(error.statusText);
+          console.error("Log an error level message.");
       }));
     });
   },
@@ -319,7 +312,7 @@ const actions = {
             console.log(error);
         }));
     });
-  },
+  },*/
 }
 
 const getters = {
