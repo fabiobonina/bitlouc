@@ -2,9 +2,10 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import Hello from '@/components/HelloWorld'
+import Lojas from '@/pages/Lojas'
 //import Bens from '@/pages/Bens'
 //import BemList from '@/components/bem/List'
-//import Clientes from '@/pages/Clientes'
+
 //import Cliente from '@/components/cliente/Cliente'
 //import Localidades from '@/pages/Localidades'
 //import LocalList from '@/components/cliente/localidade/List'
