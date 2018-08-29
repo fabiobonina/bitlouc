@@ -42,6 +42,10 @@ export default {
       this.$store.dispatch("fetchLoja").then(() => {
         //console.log("Buscando dados para inicial!")
       });
+      this.$store.dispatch("fetchLoja").then(() => {
+        this.isLoading = false
+        //console.log("Buscando dados para inicial!")
+      });
       db.collection('employees').orderBy('dept').get().then((querySnapshot) => {
         this.loading = false
         querySnapshot.forEach((doc) => {

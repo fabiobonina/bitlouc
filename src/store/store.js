@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 import db from '../firebaseInit'
 
 Vue.use(Vuex)
-//const INDEXLIST   ='./config/api/apiProprietario.php?action=read';
+const INDEXLIST   ='http://localhost/codephp/php/bitlouc/config/api/apiProprietario.php?action=read';
 //const CONFIG      ='./config/api/apiConfig.php?action=config';
 //const LOCALLIST   ='./config/api/apiLocal.php?action=read';
 //const OSLIST      ='./config/api/apiOs.php?action=read';
@@ -203,12 +203,12 @@ const actions = {
   setCategorias({ commit }, categorias) {
     commit("SET_CATEGORIAS", categorias)
   },
-  /*fetchIndex({ commit }) {
-    return new Promise((resolve, reject) => {
+  fetchIndex({ commit }) {
+    return new Promise((resolve) => {
       var postData = { token: state.token };
       Vue.http.post(INDEXLIST, postData )
       .then(function(response) {
-        //console.log( response); 
+        alert( response); 
         if(response.data.error){
           //console.log(response.data.message);
           if(!response.data.isLoggedIn){
@@ -225,11 +225,11 @@ const actions = {
         }
       })
       .catch((error => {
-          Console.log(error.statusText);
+        alert(error);
       }));
     });
   },
-  fetchConfig({ commit }) {
+  /*fetchConfig({ commit }) {
     return new Promise((resolve) => {
       Vue.http.get(CONFIG)
       .then((response) => {
